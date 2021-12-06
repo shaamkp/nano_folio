@@ -23,28 +23,24 @@
 
     <section id="about">
         <section class="wrapper">
-            <div class="container">
-                <div class="left">
-                    <div class="icon">
-                        <img src="{% static 'img/users-solid.svg' %}" alt="Image" />
-                    </div>
-                    <h3>
-                        About Us
-                    </h3>
-                </div>
+			{% for details in detailes %}
+				<div class="container">
+					<div class="left">
+						<div class="icon">
+							<img src="{{details.image.url}}" alt="Image" />
+						</div>
+						<h3>
+							{{details.title}}
+						</h3>
+					</div>
 
-                <div class="right">
-                    <p>
-                        NAno Folio is simple HTML template with a minimal very light-weight custom CSS file.Max content width is 
-                        940 pixels. You can easily change the width or any part in this template.Gallery comes with a pop-up image 
-                        and simple categories.
-                    </p>
-                    <p>
-                        Pleae support Toolplate website by telling your friends about it. That is going to be very helpful for us.
-                        Feel free to <b> message us</b> via email or live chat if you have anything to say.
-                    </p>
-                </div>
-            </div>
+					<div class="right">
+						<p>
+							{{details.description}}
+						</p>
+					</div>
+				</div>
+			{% endfor %}
         </section>
     </section>
 	<section id="gallery">
@@ -75,9 +71,11 @@
 				<input type="submit" name="submit" value="send" />
 			</form>
 			<div class="middle">
+				{% for address in adresses %}
 				<p class="paragraph">
-					120 curabitor sed tortur ultrices,congue odio eget,poseuro urna.prasent at rhonscus 1980.
+					{{address.details}}
 				</p>
+				{% endfor %}
 				<p class="tel">
 					Tel:010-020-0340
 				</p>

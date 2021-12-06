@@ -28,12 +28,9 @@ class Contact(models.Model):
 class Address(models.Model):
     details = models.TextField(null=True,blank=True)
 
-    def __str__(self):
-        return self.details
-
 
 class Details(models.Model):
-    image = models.ImageField(upload_to="details/")
+    image = models.FileField(upload_to="details/")
     title = models.CharField(max_length=255,null=True,blank=True)
     description = models.TextField()
 

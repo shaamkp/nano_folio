@@ -1,6 +1,6 @@
 import json
 from django.shortcuts import render
-from web.models import Gallery, Category, Contact
+from web.models import Gallery, Category, Contact, Address, Details
 from django.http.response import HttpResponse
 from django.http.response import JsonResponse
 
@@ -9,11 +9,15 @@ def index(request):
     galleries=Gallery.objects.all()
     categories=Category.objects.all()
     catagory_name=request.GET.get('category')
+    adresses=Address.objects.all()
+    detailes=Details.objects.all()
     
     context = {
         "galleries" :galleries,
         "categories" :categories,
         "catagory_name":catagory_name,
+        "adresses" : adresses,
+        "detailes" : detailes
     }
 
     return render(request,"index.html", context=context)
